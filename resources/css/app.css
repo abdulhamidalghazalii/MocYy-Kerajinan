@@ -1,0 +1,316 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+
+    --color-primary-50: #fdf2f4;
+    --color-primary-100: #fce7eb;
+    --color-primary-200: #fad2d9;
+    --color-primary-300: #f5b0be;
+    --color-primary-400: #ee839b;
+    --color-primary-500: #e35a7b;
+    --color-primary-600: #cc3d62;
+    --color-primary-700: #ad2b4e;
+    --color-primary-800: #902643;
+    --color-primary-900: #7a233c;
+    --color-primary-950: #440f1d;
+
+    --color-dusty-50: #fdf8f8;
+    --color-dusty-100: #f9efee;
+    --color-dusty-200: #f3dfde;
+    --color-dusty-300: #e8c6c5;
+    --color-dusty-400: #d9a4a3;
+    --color-dusty-500: #c67f7e;
+    --color-dusty-600: #b06564;
+    --color-dusty-700: #934f4f;
+
+    --color-cream-50: #fdfcf9;
+    --color-cream-100: #faf7f0;
+    --color-cream-200: #f4ede0;
+    --color-cream-300: #ece0cc;
+
+    --color-sage-50: #f4f7f4;
+    --color-sage-100: #e6ede6;
+    --color-sage-200: #cfdccf;
+    --color-sage-500: #588157;
+    --color-sage-600: #466945;
+    --color-sage-700: #385337;
+
+    --color-rosegold-400: #d4a373;
+    --color-rosegold-500: #b98555;
+    --color-rosegold-600: #9c6c40;
+}
+
+[x-cloak] { display: none !important; }
+
+/* ==========================================================================
+   ELEGANT FLORAL ANIMATIONS & LUXURY ECOMMERCE INTERACTIONS (QCLAY INSPIRED)
+   Optimized with GPU Hardware Acceleration (transform & opacity only)
+   ========================================================================== */
+
+/* Floating Hero Badges & Cards */
+@keyframes float-gentle {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(1.2deg);
+    }
+}
+
+@keyframes float-reverse {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(7px) rotate(-1.5deg);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.35;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.65;
+        transform: scale(1.06);
+    }
+}
+
+/* Drifting Rose Petals */
+@keyframes petal-fall-1 {
+    0% {
+        transform: translate3d(0, -10%, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.75;
+    }
+    90% {
+        opacity: 0.75;
+    }
+    100% {
+        transform: translate3d(70px, 115vh, 0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes petal-fall-2 {
+    0% {
+        transform: translate3d(0, -10%, 0) rotate(45deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.65;
+    }
+    85% {
+        opacity: 0.65;
+    }
+    100% {
+        transform: translate3d(-90px, 115vh, 0) rotate(-320deg);
+        opacity: 0;
+    }
+}
+
+@keyframes petal-fall-3 {
+    0% {
+        transform: translate3d(0, -10%, 0) rotate(-30deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate3d(50px, 115vh, 0) rotate(420deg);
+        opacity: 0;
+    }
+}
+
+/* Shimmer Ribbon */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+/* Utility Animation Classes */
+.animate-float-gentle {
+    animation: float-gentle 5s ease-in-out infinite;
+    will-change: transform;
+}
+
+.animate-float-reverse {
+    animation: float-reverse 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+.animate-shimmer {
+    animation: shimmer 2.5s infinite;
+}
+
+/* Scroll Reveal Base Classes */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-init.reveal-left {
+    transform: translateX(-28px);
+}
+
+.reveal-init.reveal-right {
+    transform: translateX(28px);
+}
+
+.reveal-init.reveal-scale {
+    transform: scale(0.94);
+}
+
+.reveal-active {
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+}
+
+/* Stagger Delay Classes */
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Elegant Product Card Hover Lift */
+.card-hover-lift {
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+    will-change: transform, box-shadow;
+}
+
+.card-hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px -10px rgba(224, 122, 95, 0.15), 0 10px 15px -5px rgba(212, 140, 154, 0.12);
+}
+
+/* Petal Particle Elements */
+.petal-particle {
+    position: absolute;
+    top: -40px;
+    pointer-events: none;
+    z-index: 10;
+    user-select: none;
+}
+
+.petal-particle-1 {
+    animation: petal-fall-1 14s linear infinite;
+}
+
+.petal-particle-2 {
+    animation: petal-fall-2 18s linear infinite;
+}
+
+.petal-particle-3 {
+    animation: petal-fall-3 16s linear infinite;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: PREFERS-REDUCED-MOTION SUPPORT
+   Users who configure reduced motion in their OS will experience zero nausea
+   or jarring movements.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal-init {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .animate-float-gentle,
+    .animate-float-reverse,
+    .animate-pulse-glow,
+    .animate-shimmer,
+    .petal-particle {
+        animation: none !important;
+        transform: none !important;
+    }
+
+    .card-hover-lift:hover {
+        transform: none !important;
+    }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS & TOUCH PERFORMANCE ENHANCEMENTS
+   ========================================================================== */
+html {
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+}
+
+/* Smooth Touch Scrolling */
+.overflow-y-auto, .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Safe Area Paddings for Modern Mobile Devices (iPhone notch, Android pill) */
+.pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.mb-safe {
+    margin-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Page Entry Fade (Prevents Flash of Unstyled / White Canvas) */
+@keyframes page-enter {
+    from {
+        opacity: 0.85;
+        transform: translateY(2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    animation: page-enter 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Interactive Ripple / Tap feedback */
+.touch-press {
+    transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.touch-press:active {
+    transform: scale(0.97);
+    filter: brightness(0.95);
+}
+
